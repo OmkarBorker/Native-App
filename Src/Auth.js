@@ -1,8 +1,9 @@
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import Modal from 'react-native-modal';
 
-const Authentication = (onAuthenticated) => {
+const Authentication = ({navigation}) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [showAlert, setShowAlert] = useState(false);
@@ -16,6 +17,16 @@ const Authentication = (onAuthenticated) => {
         setPassword(value);
     };
 
+    const handleAuthenticated = () => {
+        setAlertMessage('Authentication successful');
+        setShowAlert(true);
+        // Perform any necessary actions upon successful authentication
+        // Navigate to another screen or perform other logic here if needed
+        setTimeout(() => {
+            navigation.navigate('Form'); // Navigate to the Form screen
+        }, 1000);
+    };
+
     const handleSubmit = () => {
         // Perform authentication logic here
         if (!/^\d{10}$/.test(phoneNumber)) {
@@ -27,6 +38,7 @@ const Authentication = (onAuthenticated) => {
         } else {
             setAlertMessage('Authentication successful');
             setShowAlert(true);
+            handleAuthenticated();
         }
     };
 

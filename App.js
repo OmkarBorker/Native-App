@@ -20,8 +20,15 @@ const App = () => {
         {authenticated ? (
           <Stack.Screen name="Form" component={Form} /> // Render the Form component upon successful authentication
         ) : (
-          <Stack.Screen name="Authentication" component={Authentication} initialParams={{ onAuthenticated: handleAuthenticated }} options={{ headerShown: false }} />
+          <Stack.Screen name="Authentication" component={Authentication} options={{ headerShown: false }} />
         )}
+        <Stack.Screen
+                    name="Form"
+                    component={Form}
+                    options={{
+                        title: 'Personal Information',
+                    }}
+                />
       </Stack.Navigator>
     </NavigationContainer>
   );
