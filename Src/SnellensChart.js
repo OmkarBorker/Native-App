@@ -1,28 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 const SnellenChart = () => {
     return (
         <View style={styles.container}>
+            <Text style={styles.warning}>Close either eye before viewing</Text>
+            <Image
+                source={require('./../assets/SnellensChart.jpg')}
+                style={styles.chartImage}
+                resizeMode="contain"
+            />
             <Text style={styles.title}>Snellen Chart</Text>
-            <View style={styles.chartContainer}>
-                {/* Example Snellen chart with text characters */}
-                <View style={styles.chartRow}>
-                    <Text style={styles.chartText}>E</Text>
-                    <Text style={styles.chartText}>F</Text>
-                    <Text style={styles.chartText}>P</Text>
-                    <Text style={styles.chartText}>T</Text>
-                    <Text style={styles.chartText}>O</Text>
-                </View>
-                <View style={styles.chartRow}>
-                    <Text style={styles.chartText}>Z</Text>
-                    <Text style={styles.chartText}>L</Text>
-                    <Text style={styles.chartText}>P</Text>
-                    <Text style={styles.chartText}>E</Text>
-                    <Text style={styles.chartText}>D</Text>
-                </View>
-                {/* Add more rows with Snellen chart characters */}
-            </View>
         </View>
     );
 };
@@ -33,6 +21,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
+    },
+    warning: {
+        fontSize: 16,
+        marginBottom: 8,
+        marginTop: 8,
+    },
+    chartImage: {
+        width: 200, // Adjust the width according to your image size
+        height: 200, // Adjust the height according to your image size
+        marginBottom: 16,
     },
     title: {
         fontSize: 24,

@@ -18,7 +18,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         {authenticated ? (
-          <Stack.Screen name="Form" component={Form} /> // Render the Form component upon successful authentication
+          <Stack.Screen name="Form" component={Form} options={{title:'Innovease India Private Limited'}} /> // Render the Form component upon successful authentication
         ) : (
           <Stack.Screen name="Authentication" component={Authentication} options={{ headerShown: false }} />
         )}
@@ -26,7 +26,7 @@ const App = () => {
                     name="Form"
                     component={Form}
                     options={{
-                        title: 'Personal Information',
+                        title: 'Pre-Screening Form',
                     }}
                 />
       </Stack.Navigator>
