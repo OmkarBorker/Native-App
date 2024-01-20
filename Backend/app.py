@@ -1,6 +1,7 @@
 import smtplib
 from flask import Flask, request, jsonify, send_file
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 from reportlab.lib.pagesizes import letter
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -21,7 +22,7 @@ app.config['ALLOWED_HOSTS'] = ['192.168.0.103']
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Omkarborker02@db.bxnpfzilplxsajvvmswg.supabase.co:5432/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-
+CORS(app)
 
 def send_email_with_attachment(name, attachment_data):
     sender_email = "testuserspace12@gmail.com"
