@@ -286,6 +286,10 @@ class User_Data(db.Model):
     Name = db.Column(db.String(100), nullable=True)
     id_document = db.Column(db.LargeBinary, nullable=True)
 
+@app.route('/',methods=['GET'])
+def baseroute():
+    return "Working"
+    
 # Route to insert data into the User_Data table
 @app.route('/authenticate', methods=['POST'])
 def authenticate():
