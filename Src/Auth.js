@@ -33,7 +33,7 @@ const Authentication = ({ navigation }) => {
       formData.append("username", phoneNumber); // Assuming 'name' holds the username
       formData.append("password", password); // Assuming 'password' holds the password
   
-      const response = await fetch("http://192.168.0.103:5000/authenticate", {
+      const response = await fetch("http://34.93.148.40:8080/authenticate", {
         method: "POST",
         body: formData,
         headers: {
@@ -79,7 +79,7 @@ const Authentication = ({ navigation }) => {
       const file = await DocumentPicker.getDocumentAsync({
         type: "application/pdf",
       });
-      if (file) {
+      if (file && !file.canceled) {
         setUploadedFile(file);
         console.log("Done");
       } else {
@@ -125,7 +125,7 @@ const Authentication = ({ navigation }) => {
             formData.append("password", password);
             formData.append("id_document", pdfBase64);
             
-            const response = await fetch("http://192.168.0.103:5000/insert_data", {
+            const response = await fetch("http://34.93.148.40:8080/insert_data", {
               method: "POST",
               body: formData,
               headers: {
@@ -210,7 +210,7 @@ const Authentication = ({ navigation }) => {
         </TouchableOpacity>
       )}
 
-      {uploadedFile && (
+      {isRegistering && uploadedFile && (
         <View style={styles.uploadedFile}>
           <Text style={{ textAlign: "center" }}>Uploaded File:</Text>
           <Text>Name: {uploadedFile.assets[0].name || "N/A"} </Text>

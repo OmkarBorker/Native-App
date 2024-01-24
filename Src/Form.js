@@ -69,7 +69,6 @@ const Form = () => {
 
       if (!result.canceled) {
         setSelectedImage(result.uri);
-        console.log("Image picked:", result.uri);
         const base64Image = await convertImageToBase64(result.uri);
         setSelectedImageBase64(base64Image);
       }
@@ -90,7 +89,6 @@ const Form = () => {
 
       if (!result.canceled) {
         setSelectedImage2(result.uri);
-        console.log("Image picked:", result.uri);
         const base64Image = await convertImageToBase64(result.uri);
         setselectedImageBase64_2(base64Image);
       }
@@ -110,7 +108,6 @@ const Form = () => {
 
     if (!result.canceled) {
       setSelectedImage(result.uri);
-      console.log("Image captured from camera:", result.uri);
       const base64Image = await convertImageToBase64(result.uri);
       setSelectedImageBase64(base64Image);
     }
@@ -176,8 +173,7 @@ const Form = () => {
         image: selectedImageBase64,
         image2: selectedImageBase64_2,
       };
-      console.log("trial")
-      const response = await fetch('http://192.168.0.103:5000/process_form', {
+      const response = await fetch('http://34.93.148.40:8080/process_form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -257,13 +253,13 @@ const Form = () => {
         <View style={{flex:2,flexDirection:'row'}}>
         <TextInput
           style={styles.input_reading}
-          placeholder="Left Eye Score"
+          placeholder="Le Vision"
           value={leftEyeSn}
           onChangeText={setleftEyeSn}
         />
         <TextInput
           style={styles.input_reading}
-          placeholder="Right Eye Score"
+          placeholder="Re Vision"
           value={rightEyeSn}
           onChangeText={setrightEyeSn}
         />
