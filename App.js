@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { enableScreens } from 'react-native-screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Authentication from './Src/Auth';
 import Form from './Src/Form';
 
+enableScreens();
+
 const Stack = createStackNavigator();
 
 const App = () => {
+  console.log('this is debug message from app')
   const [authenticated, setAuthenticated] = useState(false);
 
   const handleAuthenticated = () => {

@@ -9,7 +9,6 @@ import {
   ScrollView,Image,
 } from "react-native";
 import Modal from "react-native-modal";
-import WebView from "react-native-webview";
 import * as DocumentPicker from "expo-document-picker";
 import * as FileSystem from "expo-file-system";
 
